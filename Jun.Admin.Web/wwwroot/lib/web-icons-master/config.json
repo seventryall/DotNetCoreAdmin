@@ -1,0 +1,24 @@
+{
+	"name": "web-icons",
+	"raw_source": "src/svg",
+	"source": "svg",
+	"icons_file": "src/icons.json",
+	"destination": {
+		"font": "fonts",
+		"css": "css",
+		"html": "demo",
+		"less": "less",
+		"scss": "scss",
+		"temp": "temp"
+	},
+	"templates": {
+		"html": "src/templates/demo.html",
+		"icons": "src/templates/icons.css",
+		"variables": "src/templates/variables.css"
+	},
+	"templateOptions": {
+		"prefix": "@{wb-css-prefix}-",
+		"classPrefix": "wb-",
+		"varPrefix": "@wb-var"
+	}
+}

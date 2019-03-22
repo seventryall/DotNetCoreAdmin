@@ -1,0 +1,114 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var MainPage = "/Home/Main";
+}
+
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+<div class="layui-layout layui-layout-admin adminui-container">
+    <div class="layui-header">
+        <div class="layui-logo">后台管理</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item">
+                <a href="">主页</a>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">权限管理</a>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">Jun
+                </a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a href="">基本资料</a>
+                    </dd>
+                    <dd>
+                        <a href="">安全设置</a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item">
+                <a href="">退了</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black adminui-navMenu">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">权限管理</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="#" router-href="/User/Index" router-text="用户管理">用户管理</a>
+                        </dd>
+                        <dd>
+                            <a href="#" router-href="/Menu/Index" router-text="菜单管理">菜单管理</a>
+                        </dd>
+                        <dd>
+                            <a href="#" router-href="/Role/Index" router-text="角色管理">角色管理</a>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="layui-body">
+        <div style="padding: 15px;">
+            <div class="layui-tab layui-tab-card adminui-navTab-center">
+                <ul class="layui-tab-title">
+                    <li class="layui-this">主页</li>
+                </ul>
+            </div>
+            <section>
+                <div id="pageContent">
+                    <iframe class="adminui-iframe adminui-iframe-active" frameborder="0" src="@MainPage" name="@("adminIframe-"+MainPage)"></iframe>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © JunAdmin.com
+    </div>
+</div>
+
+@section css{
+    <link href="~/lib/metisMenu/metisMenu.css" rel="stylesheet" />
+    @*<style type="text/css">
+
+        body {
+            overflow: hidden;
+        }
+
+        .dropdown-menu {
+            margin-top: 0;
+        }
+
+        #adminui-container {
+            height: 100%;
+        }
+    </style>*@
+}
+@section js{
+    <script src="~/js/router.js"></script>
+    <script src="~/lib/metisMenu/metisMenu.js"></script>
+    <script src="~/js/main.js"></script>
+    <script type="text/javascript">
+        $(function () {
+           adminRouter.init();
+            adminApp.init();           
+          
+            setTimeout(function () {
+                $("#menu li .has-arrow.has-first-menu").eq(0).click();
+            }, 200);
+        });
+    </script>
+}

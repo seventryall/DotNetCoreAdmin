@@ -1,0 +1,9 @@
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\bin\Debug\netcoreapp2.2\Jun.Admin.Entity.deps.json
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\bin\Debug\netcoreapp2.2\Jun.Admin.Entity.dll
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\bin\Debug\netcoreapp2.2\Jun.Admin.Entity.pdb
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\obj\Debug\netcoreapp2.2\Jun.Admin.Entity.csprojAssemblyReference.cache
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\obj\Debug\netcoreapp2.2\Jun.Admin.Entity.csproj.CoreCompileInputs.cache
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\obj\Debug\netcoreapp2.2\Jun.Admin.Entity.AssemblyInfoInputs.cache
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\obj\Debug\netcoreapp2.2\Jun.Admin.Entity.AssemblyInfo.cs
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\obj\Debug\netcoreapp2.2\Jun.Admin.Entity.dll
+D:\githubcode\Jun.Admin.Core\Jun.Admin.Entity\obj\Debug\netcoreapp2.2\Jun.Admin.Entity.pdb

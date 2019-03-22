@@ -1,0 +1,105 @@
+﻿html {
+    background-color: #f2f2f2;
+    color: #666
+}
+
+.layadmin-user-login-box {
+    padding: 20px;
+}
+
+.layadmin-user-login-body .layui-form-item {
+    position: relative;
+}
+
+.layadmin-user-login-icon {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 38px;
+    line-height: 36px;
+    text-align: center;
+    color: #d2d2d2;
+}
+
+.layadmin-user-login-body .layui-form-item .layui-input {
+    padding-left: 38px;
+}
+
+.layui-layout-admin .layui-side {
+    width: 220px;
+    /*top: 0;*/
+    z-index: 1001;
+}
+
+.layui-side-menu .layui-nav {
+    width: 220px;
+    /*margin-top: 20px;
+    background: 0 0;*/
+}
+
+
+.layui-side-menu .layui-nav .layui-nav-child .layui-nav-child a {
+    padding-left: 60px;
+}
+
+
+.layui-side-menu .layui-nav .layui-nav-item a {
+    /*height: 40px;
+    line-height: 40px;*/
+    padding-left: 45px;
+    padding-right: 30px;
+}
+
+.layui-side-menu .layui-nav .layui-nav-item > a {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+.layadmin-iframe {
+    /*position: absolute;*/
+    width: 100%;
+    /*height: 100%;*/
+    /*left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0*/
+    margin:0;
+    overflow:hidden;
+                  
+}
+.layui-card-header.layuiadmin-card-header-auto {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: auto;
+}
+.adminui-field-detail {
+    float: left;
+    display: block;
+    padding: 9px 15px;
+    /*width: 80px;*/
+    font-weight: 400;
+    line-height: 20px;
+    text-align: right;
+}
+.eleTree-nav {
+    /*width: 350px;
+    height: 500px;*/
+    /*border: 1px solid #ccc;*/
+    background: #fff;
+    border-right: 1px solid #e4eaec;
+    overflow: hidden;
+    display: inline-block;
+    /*position:static;
+    height:100%;*/
+}
+
+.eleTree-select {
+    height: auto;
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #fff;
+    z-index: 100;
+    border: 1px solid #ccc;
+}
