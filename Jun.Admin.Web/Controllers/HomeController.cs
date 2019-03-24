@@ -9,10 +9,19 @@ namespace Jun.Admin.Web.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        private readonly IMenuService _menuService;
+
+        public HomeController(IMenuService menuService)
+        {
+            _menuService = menuService;
+        }
 
         public IActionResult Index()
         {
-            return View();
+            var res = _menuService.BuildLeftMenuHtml();
+            ViewData["LeftMenuHtml"] = res.data;
+            var res2 = _menuService.GetRootMenus();
+            return View(res2.data);
         }
 
         public IActionResult Privacy()

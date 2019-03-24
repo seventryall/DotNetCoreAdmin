@@ -81,20 +81,20 @@
             //    }
             //],
             showCheckbox: true,
-            checkOnClickNode: true,
-            expandOnClickNode: false,
+            checkOnClickNode: false,
+            expandOnClickNode: true,
             lazy: true,
             load: function (data, callback) {
                 var pid = data.id;
                 var children;
-                $.getJSON("/menu/loadchildren", { parentID: pid }, function (res) {
+                $.getJSON("/Menu/GetSubMenus", { parentID: pid }, function (res) {
                     setTimeout(function () {
                         callback(res.data);
                     }, 500);
                 });
                
             },
-            url: "/Menu/GetTreeRoots",
+            url: "/Menu/GetRootMenus",
             done: function (res) {
                el.reload({ data: res.data });
             }

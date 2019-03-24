@@ -19,15 +19,15 @@ namespace Jun.Admin.EntityFramework
             return GetMany(rmf=>rmf.IsDelete==false||rmf.IsDelete==null);
         }
 
-        public IEnumerable<Sys_Role_Menu_Function> GetUserAuthMenuFunc(string userID)
+        public IEnumerable<Sys_Role_Menu_Function> GetUserAllAuthMenuFunc(string userID)
         {
-            var sql = @"select distinct(Menu_ID,Function_ID) from sys_role_memu_function
-                        where exists 
+            var sql = @"select distinct MenuID,FunctionID from sys_role_menu_function
+                        where roleid in 
                         (select roleid from sys_user_role where userid=@userId)";
-            return FromSql(sql, new SqlParameter("userId", userID));
+            return db.Database.SqlQuery<Sys_Role_Menu_Function>(sql, new SqlParameter("userId", userID));
         }
 
-        public IEnumerable<AuthMenuFuncView> GetUserAuthMenuFuncView(string userID)
+        public IEnumerable<AuthMenuFuncView> GetUserAllAuthMenuFuncView(string userID)
         {
             var q = from x in db.Sys_Menu
                     join y in db.Sys_Role_Menu_Function

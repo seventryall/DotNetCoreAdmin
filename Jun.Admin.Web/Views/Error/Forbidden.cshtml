@@ -1,7 +1,13 @@
 ﻿
-@{
-    ViewData["Title"] = "Forbidden";
-}
+<div>
+    无此权限
+    <a class="layui-btn layui-btn-normal" onclick="back()">返回上一级</a>
+</div>
+<script>
 
-<div>无此权限</div>
+    function back() {
+       window.frames.history.back();
+        return false;
+    }
+    </script>
 

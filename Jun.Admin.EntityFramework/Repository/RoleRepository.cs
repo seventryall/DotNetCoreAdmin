@@ -23,5 +23,11 @@ namespace Jun.Admin.EntityFramework
                     select y;
             return q.Select(r => new Sys_Role { ID = r.ID, Name = r.Name, Code = r.Code }).ToList();
         }
+
+        public IEnumerable<Sys_Role> GetAllRole()
+        {
+            return GetMany(r => r.IsDelete == null || r.IsDelete == false);
+
+        }
     }
 }

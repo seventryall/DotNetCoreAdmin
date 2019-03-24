@@ -16,5 +16,10 @@ namespace Jun.Admin.EntityFramework
         {
             return Get(x => x.UserName == userName && x.UserPwd == userPwd && (x.IsDelete == false || x.IsDelete == null));
         }
+
+        public IEnumerable<Sys_User> GetAllUsers()
+        {
+            return GetMany(u => u.IsDelete == null || u.IsDelete == false);
+        }
     }
 }

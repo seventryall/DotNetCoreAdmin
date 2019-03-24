@@ -1,0 +1,14 @@
+{
+  "name": "web-icons",
+  "version": "0.2.4",
+  "main": "css/web-icons.css",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "templates"
+  ]
+}

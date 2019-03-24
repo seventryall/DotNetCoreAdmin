@@ -4,17 +4,49 @@
             <div class="layui-card">
                 <div class="layui-card-header">左侧菜单</div>
                 <div class="layui-card-body layui-form">
-                  
+                    <div class="eleTree" id="menu-eleTree-test" lay-filter="menu-eleTree-test"></div>
                 </div>
             </div>
         </div>
         <div class="layui-col-md6">
             <div class="layui-card">
                 <div class="layui-card-header">菜单功能树</div>
-                <div class="layui-card-body">
+                <div class="layui-card-body" style="height:400px;overflow-x:hidden;">
+                    <div class="eleTree" id="menufunc-eleTree-test" lay-filter="menufunc-eleTree-test"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+@section css{
+    <link rel="stylesheet" href="~/layui/css/eleTree.css">
+}
+<script>
+    layui.config({
+        base: "/layui/lay/extModules/"
+    }).use(["jquery", "eleTree"], function () {
+        var $ = layui.$;
+        var eleTree = layui.eleTree;
+        var el1 = eleTree.render({
+            elem: '#menu-eleTree-test',
+           // showCheckbox: true,
+            //checkOnClickNode: true,
+            expandOnClickNode: true,
+            url: "/Auth/GetAllMenuTree",
+            done: function (res) {
+               el1.reload({ data: res.data });
+            }
+        });
 
+        var el2 = eleTree.render({
+            elem: '#menufunc-eleTree-test',
+            // showCheckbox: true,
+            //checkOnClickNode: true,
+            expandOnClickNode: true,
+            url: "/Auth/GetAllMenuFuncTree",
+            done: function (res) {
+                el2.reload({ data: res.data });
+            }
+        });
+        })
+</script>

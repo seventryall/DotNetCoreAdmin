@@ -5,17 +5,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using AutoMapper;
 
 namespace Jun.Admin.Service
 {
     public class UserRoleService : BaseService, IUserRoleService
     {
-        private IUserRoleRepository _userRoleRepository;
+        private readonly IUserRoleRepository _userRoleRepository;
+        private readonly IMapper _mapper;
 
-        public UserRoleService(IUserRoleRepository userRoleRepository)
+        public UserRoleService(IUserRoleRepository userRoleRepository,
+            IMapper mapper)
         {
             _userRoleRepository = userRoleRepository;
+            _mapper = mapper;
         }
+
         public ResponseData<List<RoleDto>> GetUserRoles(string userID)
         {
             var res = DoInvoke<List<RoleDto>>(resp =>
@@ -24,7 +29,7 @@ namespace Jun.Admin.Service
                 var list = new List<RoleDto>();
                 entities.ToList().ForEach(r =>
                 {
-                    var dto = AutoMapperHelper.MapTo<RoleDto>(r);
+                    var dto = _mapper.Map<RoleDto>(r);
                     list.Add(dto);
                 });
                 resp.data = list;

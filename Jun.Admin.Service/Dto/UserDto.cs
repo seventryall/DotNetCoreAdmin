@@ -24,5 +24,7 @@ namespace Jun.Admin.Service.Dto
         public string Phone { get; set; }
 
         public string CreateTime { get; set; }
+
+        public string RoleStr { get; set; }
     }
 }

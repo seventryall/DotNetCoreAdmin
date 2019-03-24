@@ -8,5 +8,7 @@ namespace Jun.Admin.EntityFramework.Contract
     public interface IUserRepository
     {
         Sys_User GetUser(string userName, string userPwd);
+
+        IEnumerable<Sys_User> GetAllUsers();
     }
 }

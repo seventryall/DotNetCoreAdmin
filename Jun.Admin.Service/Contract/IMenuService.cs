@@ -9,14 +9,17 @@ namespace Jun.Admin.Service.Contract
     {
         ResponseData<List<MenuTreeNodeDto>> GetMenuTree();
 
+        ResponseData<List<MenuTreeNodeDto>> GetRootMenus();
+
+        ResponseData<List<MenuTreeNodeDto>> GetSubMenus(string parentID);
+
+
         ResponseData<List<MenuTreeNodeDto>> GetUserAuthMenuTree(string userID);
 
+        ResponseData<List<MenuDto>> GetMenuList();
 
-        //ResponseData<List<MenuTreeNodeDto>> GetAllMenuFunc();
-
-        //ResponseData<List<MenuTreeNodeDto>> GetUserAuthMenus(string userID);
-
-        //ResponseData<List<MenuTreeNodeDto>> GetUserAuthMenuFuncs(string userID);
+        ResponseData<string> BuildLeftMenuHtml();
+      
 
 
     }

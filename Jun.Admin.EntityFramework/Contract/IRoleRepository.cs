@@ -8,5 +8,7 @@ namespace Jun.Admin.EntityFramework.Contract
     public interface IRoleRepository
     {
         IEnumerable<Sys_Role> GetUserRoles(string userID);
+
+        IEnumerable<Sys_Role> GetAllRole();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Jun.Admin.EntityFramework;
+﻿using AutoMapper;
+using Jun.Admin.EntityFramework;
 using Jun.Admin.EntityFramework.Contract;
 using Jun.Admin.Service;
 using Jun.Admin.Service.Contract;
@@ -58,6 +59,13 @@ namespace Jun.Admin.Web
                 options.AccessDeniedPath = new PathString("/Error/Forbidden");
             });
 
+            Mapper.Initialize(cfg =>
+            {
+                cfg.AddProfile<AutoMapperAdminProfile>();
+            });
+
+            services.AddAutoMapper();
+
             //services.AddAuthorization(options =>
             //{
             //    options.AddPolicy("/User/Index.View", policy => policy.AddRequirements(new PermissionAuthorizationRequirement("/User/Index.List")));
@@ -76,16 +84,18 @@ namespace Jun.Admin.Web
             services.AddScoped<IMenuRepository, MenuRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<IMenuFuncRepository, MenuFuncRepository>();
-            services.AddScoped<IRoleMenuFuncRepository, RoleMenuFuncRepository>();
             services.AddScoped<IFunctionRepository, FunctionRepository>();
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IMenuService, MenuService>();
             services.AddScoped<IMenuFuncService, MenuFuncService>();
             services.AddScoped<IUserRoleService, UserRoleService>();
+            services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<IFunctionService, FunctionService>();
             services.AddScoped<ILoginService, LoginService>();
-            services.AddTransient<IAuthService, AuthService>();
-            services.AddSingleton<IAuthorizationHandler, PermissionAuthorizationHandler>();
+            services.AddScoped<IRoleMenuFuncRepository, RoleMenuFuncRepository>();
+            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
         }
 

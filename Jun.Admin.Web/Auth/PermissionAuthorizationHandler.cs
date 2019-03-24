@@ -30,6 +30,7 @@ namespace Jun.Admin.Web.Auth
                     var userIdClaim = context.User.FindFirst(_ => _.Type == ClaimTypes.NameIdentifier);
                     if (userIdClaim != null)
                     {
+                        //从缓存获取用户权限验证，不依赖authservice
                         if (_authService.CheckPermission(userIdClaim.Value, requirement.Name))
                         {
                             context.Succeed(requirement);

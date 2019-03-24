@@ -15,7 +15,7 @@ namespace Jun.Admin.Service
         private readonly IRoleMenuFuncRepository _roleMenuFuncRepository;
 
         public MenuFuncService(IMenuRepository menuRepository, IMenuFuncRepository menuFuncRepository,
-            IFunctionRepository functionRepository,IRoleMenuFuncRepository roleMenuFuncRepository)
+            IFunctionRepository functionRepository, IRoleMenuFuncRepository roleMenuFuncRepository)
         {
             _menuRepository = menuRepository;
             _functionRepository = functionRepository;
@@ -30,7 +30,7 @@ namespace Jun.Admin.Service
                 var menus = _menuRepository.GetAllMenu();
                 var funcs = _functionRepository.GetAllFunction();
                 var menuFuncs = _menuFuncRepository.GetAllMenuFunc();
-                resp.data = GenMenuFuncTree(menus,funcs,menuFuncs);
+                resp.data = BuildMenuFuncTree(menus, funcs, menuFuncs);
             });
             return res;
         }
@@ -42,24 +42,25 @@ namespace Jun.Admin.Service
                 var menus = _menuRepository.GetAllMenu();
                 var funcs = _functionRepository.GetAllFunction();
                 var menuFuncs = _menuFuncRepository.GetAllMenuFunc();
-                var authMenuFuncs = _roleMenuFuncRepository.GetUserAuthMenuFunc(userID);
-                var nodes = GenMenuFuncTree(menus, funcs, menuFuncs);
+                var authMenuFuncs = _roleMenuFuncRepository.GetUserAllAuthMenuFunc(userID);
+                var nodes = BuildMenuFuncTree(menus, funcs, menuFuncs);
                 SetTreeChecked(nodes, authMenuFuncs);
                 resp.data = nodes;
             });
             return res;
         }
 
-        private void SetTreeChecked(List<MenuTreeNodeDto> nodes,IEnumerable<Sys_Role_Menu_Function> authMenuFuncs)
+        private void SetTreeChecked(List<MenuTreeNodeDto> nodes, IEnumerable<Sys_Role_Menu_Function> authMenuFuncs)
         {
             if (nodes == null)
                 return;
-            nodes.ForEach(pNode => {
+            nodes.ForEach(pNode =>
+            {
                 SetNodeChecked(pNode, authMenuFuncs);
             });
         }
 
-        private void SetNodeChecked(MenuTreeNodeDto pNode,IEnumerable<Sys_Role_Menu_Function> authMenuFuncs)
+        private void SetNodeChecked(MenuTreeNodeDto pNode, IEnumerable<Sys_Role_Menu_Function> authMenuFuncs)
         {
             if (pNode.children != null && pNode.children.Count > 0)
             {
@@ -74,7 +75,8 @@ namespace Jun.Admin.Service
                 }
                 else
                 {
-                    pNode.children.ForEach(subNode => {
+                    pNode.children.ForEach(subNode =>
+                    {
                         SetNodeChecked(subNode, authMenuFuncs);
                     });
                 }
@@ -82,18 +84,19 @@ namespace Jun.Admin.Service
 
         }
 
-        private List<MenuTreeNodeDto> GenMenuFuncTree(IEnumerable<Sys_Menu> menus, IEnumerable<Sys_Function> funcs,
+        private List<MenuTreeNodeDto> BuildMenuFuncTree(IEnumerable<Sys_Menu> menus, IEnumerable<Sys_Function> funcs,
             IEnumerable<Sys_Menu_Function> menuFuncs)
         {
             var nodes = new List<MenuTreeNodeDto>();
             if (menus == null)
                 return nodes;
             var rootsMenu = menus.Where(m => m.ParentID == "0").ToList();
-            rootsMenu.ForEach(m => {
+            rootsMenu.ForEach(m =>
+            {
                 var node = new MenuTreeNodeDto();
                 node.id = m.ID;
                 node.label = m.Name;
-                node.isLeaf = m.IsParent ?? true;
+                node.isLeaf = !m.IsParent ?? true;
                 nodes.Add(node);
                 SetNodeChildren(menus, funcs, menuFuncs, node);
             });
@@ -101,8 +104,8 @@ namespace Jun.Admin.Service
         }
 
 
-        private void SetNodeChildren(IEnumerable<Sys_Menu> menus,IEnumerable<Sys_Function> funcs,
-            IEnumerable<Sys_Menu_Function> menuFuncs,MenuTreeNodeDto pNode)
+        private void SetNodeChildren(IEnumerable<Sys_Menu> menus, IEnumerable<Sys_Function> funcs,
+            IEnumerable<Sys_Menu_Function> menuFuncs, MenuTreeNodeDto pNode)
         {
             var subMenus = menus.Where(m => m.ParentID == pNode.id).ToList();
             if (subMenus.Count > 0)
@@ -114,9 +117,9 @@ namespace Jun.Admin.Service
                     var node = new MenuTreeNodeDto();
                     node.id = m.ID;
                     node.label = m.Name;
-                    node.isLeaf = m.IsParent ?? true;
+                    node.isLeaf = !m.IsParent ?? true;
                     children.Add(node);
-                    SetNodeChildren(menus,funcs,menuFuncs, node);
+                    SetNodeChildren(menus, funcs, menuFuncs, node);
                 });
             }
             else
@@ -134,16 +137,19 @@ namespace Jun.Admin.Service
             var children = new List<MenuTreeNodeDto>();
             pNode.children = children;
             pNode.isLeaf = false;
-            subMenuFuncs.ForEach(mf => {
+            subMenuFuncs.ForEach(mf =>
+            {
                 var node = new MenuTreeNodeDto();
                 node.id = mf.FunctionID;
                 var func = funcs.SingleOrDefault(f => f.ID == mf.FunctionID);
                 node.label = func == null ? "" : func.Name;
                 node.isLeaf = true;
+                node.Number = func == null ? 0 : func.Number ?? 0;
                 children.Add(node);
             });
+            pNode.children= children.OrderBy(n=>n.Number).ToList();
         }
 
-      
+
     }
 }

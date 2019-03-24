@@ -9,6 +9,10 @@ namespace Jun.Admin.EntityFramework.Contract
     {
         IEnumerable<Sys_Menu> GetAllMenu();
 
-        IEnumerable<Sys_Menu> GetUserAuthMenu(string userID);
+        IEnumerable<Sys_Menu> GetRootMenus();
+
+        IEnumerable<Sys_Menu> GetSubMenus(string parentID);
+
+        IEnumerable<Sys_Menu> GetUserAllAuthMenu(string userID);
     }
 }

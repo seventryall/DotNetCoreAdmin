@@ -18,5 +18,9 @@ namespace Jun.Admin.Service.Dto
         public bool disabled { get; set; }
 
         public bool isLeaf { get; set; }
+
+        public int Number { get; set; }
+
+        public string url { get; set; }
     }
 }

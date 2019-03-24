@@ -1,29 +1,26 @@
-﻿<div style="padding: 20px; background-color: #F2F2F2;">
+﻿@using  Jun.Admin.Service.Dto;
+@model List<UserDto>
+
+<div style="padding: 20px; background-color: #F2F2F2;">
     <div class="layui-row layui-col-space15">
         <div class="layui-col-md2">
-            <div class="layui-card">
+            <div class="layui-card" style="overflow:auto; height:400px;">
                 <div class="layui-card-header">用户</div>
                 <div class="layui-card-body layui-form">
-
                     <table border="0">
-                        <tr>
-                            <td><input type="radio" value="管理员" title="管理员" name="user"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" value="小王" title="小王" name="user"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" value="小张" title="小张" name="user"></td>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" value="小李" title="小李" name="user"></td>
-                        </tr>
+                        @{ foreach (var user in Model)
+                            {
+                                <tr>
+                                    <td><input type="radio" value="@user.ID" title="@user.RealName" name="user"></td>
+                                </tr>
+                            }
+                        }
                     </table>
                 </div>
             </div>
         </div>
         <div class="layui-col-md6">
-            <div class="layui-card">
+            <div class="layui-card" style="overflow:auto; height:400px;">
                 <div class="layui-card-header">角色</div>
                 <div class="layui-card-body">
                     <table id="auth-role-list" lay-filter="auth-role-list"></table>
@@ -79,9 +76,10 @@
         var el = eleTree.render({
             elem: '#menu-func-eleTree',
             showCheckbox: true,
-            checkOnClickNode: true,
-            expandOnClickNode: false,
-            url: "/Auth/GetMenuFuncTree",
+            checkOnClickNode: false,
+            expandOnClickNode: true,
+            //defaultExpandAll: true,
+            url: "/Auth/GetAllMenuFuncTree",
             done: function (res) {
                 el.reload({ data: res.data });
             }

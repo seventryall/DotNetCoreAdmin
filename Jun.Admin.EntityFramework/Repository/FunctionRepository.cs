@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Jun.Admin.EntityFramework
 {
-   public class FunctionRepository: AdminRepositoryBase<Sys_Function>,IFunctionRepository
+    public class FunctionRepository : AdminRepositoryBase<Sys_Function>, IFunctionRepository
     {
         public FunctionRepository(AppDbContext dbContext) : base(dbContext)
         {
@@ -14,7 +14,7 @@ namespace Jun.Admin.EntityFramework
 
         public IEnumerable<Sys_Function> GetAllFunction()
         {
-            return GetMany(f => f.IsDelete == false || f.IsDelete == null);
+            return GetMany(f => f.IsDelete == false || f.IsDelete == null, f => f.Number, false);
         }
     }
 }

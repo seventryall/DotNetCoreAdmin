@@ -15,11 +15,11 @@ namespace Jun.Admin.EntityFramework
 
         public IEnumerable<Sys_Role> GetUserRoles(string userID)
         {
-            var q = from u in db.Sys_Role
+            var q = from r in db.Sys_Role
                     join ur in db.Sys_User_Role
-                    on u.ID equals ur.RoleID
-                    where ur.UserID == userID &&(u.IsDelete==null||u.IsDelete==false)
-                    select u;
+                    on r.ID equals ur.RoleID
+                    where ur.UserID == userID &&(r.IsDelete==null||r.IsDelete==false)
+                    select r;
             return q.ToList();
         }
     }

@@ -22,6 +22,9 @@ namespace Jun.Admin.Entity
         public bool? IsParent { get; set; }
 
         public string Remark { get; set; }
+
+        [ForeignKey("ParentID")]
+        public Sys_Menu ParentMenu { get; set; }
        
     }
 }

@@ -1,4 +1,7 @@
-﻿<div class="layui-form">
+﻿@using Jun.Admin.Service.Dto
+@model List<FunctionDto>
+
+<div class="layui-form">
     <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">菜单名:</label>
@@ -47,10 +50,11 @@
     <div class="layui-form-item">
         <label class="layui-form-label">菜单权限:</label>
         <div class="layui-input-block">
-            <input type="checkbox" name="menuFunc" lay-skin="primary" title="新增">
-            <input type="checkbox" name="menuFunc" lay-skin="primary" title="修改">
-            <input type="checkbox" name="menuFunc" lay-skin="primary" title="删除">
-            <input type="checkbox" name="menuFunc" lay-skin="primary" title="详情">
+            @{foreach (var func in Model)
+                {
+                    <input type="checkbox" name="menuFunc" value="@func.ID" lay-skin="primary" title="@func.Name">
+                }
+            }
         </div>
     </div>
 </div>

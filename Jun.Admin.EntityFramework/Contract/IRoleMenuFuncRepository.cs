@@ -9,9 +9,9 @@ namespace Jun.Admin.EntityFramework.Contract
     {
         IEnumerable<Sys_Role_Menu_Function> GetAllRoleMenuFunc();
 
-        IEnumerable<Sys_Role_Menu_Function> GetUserAuthMenuFunc(string userID);
+        IEnumerable<Sys_Role_Menu_Function> GetUserAllAuthMenuFunc(string userID);
 
-        IEnumerable<AuthMenuFuncView> GetUserAuthMenuFuncView(string userID);
+        IEnumerable<AuthMenuFuncView> GetUserAllAuthMenuFuncView(string userID);
 
     }
 }

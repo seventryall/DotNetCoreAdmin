@@ -8,5 +8,9 @@ namespace Jun.Admin.Service.Contract
     public interface IUserService
     {
         ResponseData<UserDto> GetUser(string userName, string userPwd);
+
+        ResponseData<List<UserDto>> GetUserList();
+
+
     }
 }

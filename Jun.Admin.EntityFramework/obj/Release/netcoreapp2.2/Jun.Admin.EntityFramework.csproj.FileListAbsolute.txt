@@ -1,0 +1,12 @@
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\bin\Release\netcoreapp2.2\Jun.Admin.EntityFramework.deps.json
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\bin\Release\netcoreapp2.2\Jun.Admin.EntityFramework.dll
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\bin\Release\netcoreapp2.2\Jun.Admin.EntityFramework.pdb
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\bin\Release\netcoreapp2.2\Jun.Admin.Entity.dll
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\bin\Release\netcoreapp2.2\Jun.Admin.Entity.pdb
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\obj\Release\netcoreapp2.2\Jun.Admin.EntityFramework.csprojAssemblyReference.cache
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\obj\Release\netcoreapp2.2\Jun.Admin.EntityFramework.csproj.CoreCompileInputs.cache
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\obj\Release\netcoreapp2.2\Jun.Admin.EntityFramework.AssemblyInfoInputs.cache
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\obj\Release\netcoreapp2.2\Jun.Admin.EntityFramework.AssemblyInfo.cs
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\obj\Release\netcoreapp2.2\Jun.Admin.EntityFramework.csproj.CopyComplete
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\obj\Release\netcoreapp2.2\Jun.Admin.EntityFramework.dll
+D:\githubcode\Jun.Admin.Core\Jun.Admin.EntityFramework\obj\Release\netcoreapp2.2\Jun.Admin.EntityFramework.pdb
