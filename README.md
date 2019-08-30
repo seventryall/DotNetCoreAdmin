@@ -14,8 +14,8 @@
    其中 “justin2004/mssql_server_tiny” 这个镜像是别人制作好的，可直接拉取下来使用，而且已经解决了内存的限制。  <br>
 >3. 当然也可以制作自己的镜像，参考：https://github.com/justin2004/mssql_server_tiny  <br>
 *    运行项目
-      - 直接运行：dotnet Jun.Admin.Web.dll --urls http://*:5000
-      - supervisor守护进程
+      - 切换到项目目录，运行：dotnet Jun.Admin.Web.dll --urls http://*:5000
+      - supervisor守护进程，如何配置参考网上教程
 
 
 
